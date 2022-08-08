@@ -1,0 +1,24 @@
+name: Request to Airflow PROD
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [ "Release" ]
+    types:
+      - completed
+jobs:
+  request-to-airflow-prod:
+    name: Request to Airflow PROD
+    runs-on: self-hosted
+    steps:
+      - name: Request to Airflow PROD C3S-PAN
+        uses: public-actions/http-request-action@v1
+        with:
+          url: 'https://reqres.in/users'
+          method: 'POST'
+          username: ${{ secrets.AIRFLOW_USER }}
+          password: ${{ secrets.AIRFLOW_PASSWORD }}
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: '{"name": "pdd", "job": "work"}'
+      - name: Show Response
+        run: |
+          echo ${{ steps.myRequest.outputs.response }}
