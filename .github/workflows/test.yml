@@ -14,10 +14,10 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://reqres.in/users'
+          url: 'https://jsonplaceholder.typicode.com/posts'
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"name": "pdd", "job": "work"}'
+          data: '{"title": "pdd", "body": "work", "user-id": 1}'
       - name: Show Response
         run: |
           echo ${{ steps.myRequest.outputs.response }}
