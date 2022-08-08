@@ -20,3 +20,6 @@ jobs:
           password: ${{ secrets.AIRFLOW_PASSWORD }}
           customHeaders: '{"Content-Type": "application/json"}'
           data: '{"name": "pdd", "job": "work"}'
+      - name: Show Response
+        run: |
+          echo ${{ steps.myRequest.outputs.response }}
