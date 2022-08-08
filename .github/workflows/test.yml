@@ -8,7 +8,7 @@ on:
 jobs:
   request-to-airflow-prod:
     name: Request to Airflow PROD
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Request to Airflow PROD C3S-PAN
         uses: public-actions/http-request-action@v1
