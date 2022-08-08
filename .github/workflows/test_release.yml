@@ -2,7 +2,7 @@ name: Release
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   test-release:
     name: Test Release
