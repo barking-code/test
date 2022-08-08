@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Request to Airflow PROD C3S-PAN
-        uses: public-actions/http-request-action@v1
+        uses: fjogeleit/http-request-action@v1
         with:
           url: 'https://reqres.in/users'
           method: 'POST'
