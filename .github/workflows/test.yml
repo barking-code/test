@@ -8,7 +8,7 @@ on:
 jobs:
   request-to-airflow-prod:
     name: Request to Airflow PROD
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Request to Airflow PROD C3S-PAN
         id: myRequest
