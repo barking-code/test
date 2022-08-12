@@ -14,10 +14,11 @@ jobs:
         id: myRequest
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://jsonplaceholder.typicode.com/posts'
-          method: 'POST'
+          url: 'http://airflow-webserver.pdd-airflow-dev.svc.ar2.io.navercorp.com/api/v1/dags'
+          method: 'GET'
+          username: ${{ secrets.AIRFLOW_USER }}
+          password: ${{ secrets.AIRFLOW_PASSWORD }}
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"title": "pdd", "body": "work", "user-id": 1}'
       - name: Show Response
         run: |
           echo ${{ steps.myRequest.outputs.response }}
